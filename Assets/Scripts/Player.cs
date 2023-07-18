@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public int healthPoints = 1;
 
     private GameObject interactedDoor;
+    private GameObject interactedExitDoor;
 
     void Awake()
     {
@@ -39,17 +40,19 @@ public class Player : MonoBehaviour
             if (interactedDoor != null) {
                 transform.position = interactedDoor.GetComponent<Teleporter>().GetDoorPosition().position;
             }
-            
+            if (interactedExitDoor != null) {
+                Debug.Log("Exit door E");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+            }
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Door")) {
             interactedDoor = other.gameObject;
-        } else if (other.CompareTag("ExitDoor")) {
-            if (Input.GetKeyDown(KeyCode.E)) {
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+        } 
+        if (other.CompareTag("ExitDoor")) {
+            interactedExitDoor = other.gameObject;
         }
     }
 

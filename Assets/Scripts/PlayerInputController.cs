@@ -6,7 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     Player player;
     Rigidbody2D rb;
-    public float jumpForce = 0.1f;
+    public float jumpForce = 2f;
 
     void Awake()
     {
@@ -14,16 +14,11 @@ public class PlayerInputController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space)) {
+        if (Input.GetKeyDown(KeyCode.Space)) {
+            Debug.Log("Jump");
             rb.AddForce(new Vector3(0, jumpForce, 0), ForceMode2D.Impulse);
         }
 
