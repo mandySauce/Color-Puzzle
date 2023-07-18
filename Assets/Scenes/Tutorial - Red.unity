@@ -207,7 +207,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 735546557}
         m_TargetAssemblyTypeName: PauseScreen, Assembly-CSharp
         m_MethodName: SettingsMenu
         m_Mode: 1
@@ -268,6 +268,7 @@ GameObject:
   - component: {fileID: 104741710}
   - component: {fileID: 104741712}
   - component: {fileID: 104741711}
+  - component: {fileID: 104741713}
   m_Layer: 5
   m_Name: Pause Screen
   m_TagString: Untagged
@@ -336,6 +337,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 104741709}
   m_CullTransparentMesh: 1
+--- !u!114 &104741713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 104741709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44804de01e0691b4f9995f5f3ceed37e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &201850744
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1154,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 735546557}
         m_TargetAssemblyTypeName: PauseScreen, Assembly-CSharp
         m_MethodName: Menu
         m_Mode: 1
@@ -2499,7 +2512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 735546557}
         m_TargetAssemblyTypeName: PauseScreen, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
