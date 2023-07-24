@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
 
     public float speed;
-    public float walkSpeed = 3.0f;
+    public float walkSpeed = 5.0f;
     public float sprintSpeed = 3.0f;
     
     public int healthPoints = 1;
@@ -64,10 +64,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void Move(Vector3 direction) {
+    /*public void Move(Vector3 direction) {
         rb.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));
         
-    }
+    }*/
 
     
 }
