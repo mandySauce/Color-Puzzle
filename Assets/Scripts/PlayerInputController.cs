@@ -8,7 +8,7 @@ public class PlayerInputController : MonoBehaviour
 
     Player player;
     Rigidbody2D rb;
-    public float jumpForce = 2f;
+    public float jumpForce = 5f;
     public bool onGround;
 
     void Awake()

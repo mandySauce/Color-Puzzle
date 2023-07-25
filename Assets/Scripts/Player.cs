@@ -8,8 +8,8 @@ public class Player : MonoBehaviour
     Rigidbody2D rb;
 
     public float speed;
-    public float walkSpeed = 5.0f;
-    public float sprintSpeed = 3.0f;
+    public float walkSpeed = 10.0f;
+    public float sprintSpeed = 5.0f;
     
     public int healthPoints = 1;
 
