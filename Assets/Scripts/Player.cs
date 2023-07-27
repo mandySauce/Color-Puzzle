@@ -15,19 +15,13 @@ public class Player : MonoBehaviour
 
     private GameObject interactedDoor;
     private GameObject interactedExitDoor;
+    private ExitDoor exitDoor;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        //screenBoundary = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetKey(KeyCode.LeftShift)) {
@@ -42,7 +36,7 @@ public class Player : MonoBehaviour
             }
             if (interactedExitDoor != null) {
                 Debug.Log("Exit door E");
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+                exitDoor.AttemptToOpenExitDoor();
             }
         }
     }
@@ -53,6 +47,7 @@ public class Player : MonoBehaviour
         } 
         if (other.CompareTag("ExitDoor")) {
             interactedExitDoor = other.gameObject;
+            exitDoor = interactedExitDoor.GetComponent<ExitDoor>();
         }
     }
 
@@ -62,12 +57,11 @@ public class Player : MonoBehaviour
                 interactedDoor = null;
             }
         }
+        if (other.CompareTag("ExitDoor")) {
+            if (other.gameObject == interactedExitDoor) {
+                interactedExitDoor = null;
+            }
+        }
     }
-
-    /*public void Move(Vector3 direction) {
-        rb.MovePosition(transform.position + (direction * speed * Time.fixedDeltaTime));
-        
-    }*/
-
     
 }
