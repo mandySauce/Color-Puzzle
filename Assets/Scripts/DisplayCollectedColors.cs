@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DisplayCollectedColors : MonoBehaviour
+public class DisplayCollectedColors : MonoBehaviour, IColorObserver
 {
     public ColorCollect cc;
     public Text redDisplay, orangeDisplay, yellowDisplay, greenDisplay, blueDisplay, purpleDisplay, pinkDisplay;
@@ -11,20 +11,37 @@ public class DisplayCollectedColors : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (cc != null)
+        {
+            cc.AddObserver(this);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void UpdateColorCount(string colorName, int count)
     {
-        if (cc != null) {
-            redDisplay.text = cc.redCollected.ToString();
-            orangeDisplay.text = cc.orangeCollected.ToString();
-            yellowDisplay.text = cc.yellowCollected.ToString();
-            greenDisplay.text = cc.greenCollected.ToString();
-            blueDisplay.text = cc.blueCollected.ToString();
-            purpleDisplay.text = cc.purpleCollected.ToString();
-            pinkDisplay.text = cc.pinkCollected.ToString();
+        switch (colorName)
+        {
+            case "Red":
+                redDisplay.text = count.ToString();
+                break;
+            case "Orange":
+                orangeDisplay.text = count.ToString();
+                break;
+            case "Yellow":
+                yellowDisplay.text = count.ToString();
+                break;
+            case "Green":
+                greenDisplay.text = count.ToString();
+                break;
+            case "Blue":
+                blueDisplay.text = count.ToString();
+                break;
+            case "Purple":
+                purpleDisplay.text = count.ToString();
+                break;
+            case "Pink":
+                pinkDisplay.text = count.ToString();
+                break;
         }
     }
 }

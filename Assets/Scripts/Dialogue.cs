@@ -5,25 +5,21 @@ using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    public GameObject dialogueBox;
     public Text text;
     public Text characterNameBox;
-    public Text continueText;
+    public Text continueText; // Reference to the UI Text element for instructions
     public string characterName;
     [TextArea(3,4)]
     public string[] dialogueLines;
     public float textSpeed;
     private int index;
-    private bool lineTypingComplete = true; // Set it to true initially
-    public bool playDialogue = false;
+    private bool lineTypingComplete = false;
 
     void Start()
     {
-        continueText.gameObject.SetActive(false);
-        if (playDialogue)
-        {
-            StartDialogue();
-        }
+        text.text = string.Empty;
+        continueText.gameObject.SetActive(false); // Initially hide the instruction
+        StartDialogue();
     }
 
     void Update()
@@ -39,15 +35,13 @@ public class Dialogue : MonoBehaviour
                 StopAllCoroutines();
                 text.text = dialogueLines[index];
                 lineTypingComplete = true;
-                continueText.gameObject.SetActive(true);
+                continueText.gameObject.SetActive(true); // Show instruction when line is fully typed
             }
         }
     }
 
     void StartDialogue()
     {
-        text.text = string.Empty;
-        dialogueBox.SetActive(true);
         index = 0;
         lineTypingComplete = false;
         characterNameBox.text = characterName;
@@ -63,12 +57,12 @@ public class Dialogue : MonoBehaviour
         }
 
         lineTypingComplete = true;
-        continueText.gameObject.SetActive(true);
+        continueText.gameObject.SetActive(true); // Show instruction when line is fully typed
     }
 
     void NextLine()
     {
-        continueText.gameObject.SetActive(false);
+        continueText.gameObject.SetActive(false); // Hide instruction when starting new line
         if (index < dialogueLines.Length - 1)
         {
             index++;
@@ -78,16 +72,7 @@ public class Dialogue : MonoBehaviour
         }
         else
         {
-            dialogueBox.SetActive(false);
-        }
-    }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && !playDialogue) // Only start dialogue if not already playing
-        {
-            playDialogue = true;
-            StartDialogue();
+            gameObject.SetActive(false);
         }
     }
 }
