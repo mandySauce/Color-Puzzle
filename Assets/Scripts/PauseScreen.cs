@@ -8,6 +8,7 @@ public class PauseScreen : MonoBehaviour
     public static bool isPaused = false;
 
     public GameObject pauseMenu;
+    public GameObject settingsMenu;
 
     private void Start() {
         pauseMenu.SetActive(false);
@@ -41,7 +42,11 @@ public class PauseScreen : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void SettingsMenu() {
-        Debug.Log("open settings");
+    public void OpenSettingsMenu() {
+        settingsMenu.SetActive(true);
+    }
+
+    public void CloseSettingsMenu() {
+        settingsMenu.SetActive(false);
     }
 }

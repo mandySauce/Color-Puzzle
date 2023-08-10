@@ -2477,7 +2477,7 @@ GameObject:
   - component: {fileID: 878360750}
   - component: {fileID: 878360749}
   m_Layer: 5
-  m_Name: Objective Text
+  m_Name: Objective List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10054,8 +10054,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b5d6ef58d81da944839a862b3ef0aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  jumpForce: 5
-  onGround: 1
+  jumpForce: 10
+  onGround: 0
 --- !u!114 &2102185849
 MonoBehaviour:
   m_ObjectHideFlags: 0

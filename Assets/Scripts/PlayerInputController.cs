@@ -8,7 +8,7 @@ public class PlayerInputController : MonoBehaviour
 
     Player player;
     Rigidbody2D rb;
-    public float jumpForce = 5f;
+    public float jumpForce = 10f;
     public bool onGround;
 
     void Awake()
@@ -27,7 +27,7 @@ public class PlayerInputController : MonoBehaviour
             onGround = false;
             Debug.Log("in the air");
         }
-
+        transform.rotation = Quaternion.identity;
         horizontalMove = Input.GetAxis("Horizontal");
 
     }
